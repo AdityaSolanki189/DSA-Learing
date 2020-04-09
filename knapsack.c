@@ -1,3 +1,5 @@
+//Week_3 Prob.2 Maximum Value of the Loot 
+
 #include <stdio.h>
 #include <stdlib.h>
 
