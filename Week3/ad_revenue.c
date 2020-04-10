@@ -1,14 +1,15 @@
 #include <stdio.h>
 
-int maximum(int m[],int n){
-    int max=0,index;
+int sort(int m[],int n){
     for(int i=0;i<n;i++){
-        if(max<m[i]){
-            max= m[i];
-            index = i;
+        for(int j=i+1;j<n;j++){
+            if(m[i]<m[j]){
+                int temp = m[j];
+                m[j] = m[i];
+                m[i] = temp;
+            }
         }
     }
-    return index;
 }
 
 int main(){
@@ -20,11 +21,11 @@ int main(){
     for(int i=0;i<n;i++){
         scanf("%d",&b[i]);
     }
+    sort(a,n);
+    sort(b,n);
     int res=0;
     for(int i=0;i<n;i++){
-        int max_a = maximum(a,n);
-        int max_b = maximum(b,n);
-        res = res + (a[max_a]*b[max_b]);
+        res = res + (a[i]*b[i]);
     }
     printf("%d",res);
     return 0;
