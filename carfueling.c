@@ -2,35 +2,31 @@
 
 
 int main(){
-    int d,m,n,s[300],num_ref;
+    int d,m,n,s[1000];
     scanf("%d%d%d",&d,&m,&n);
-     
-    for(int i=0;i<n;i++){
+    s[0] = 0;
+    for(int i=1;i<=n;i++){
         scanf("%d",&s[i]);
     }
+    s[n+1] = d;
     
     
-    num_ref = car_fuel(d,m,n,s);
-    printf("%d",num_ref);
-    return 0;
-}
-
-int car_fuel(int d,int m,int n,int s[]){
     int cur=0,min=0;
-    while(cur<=d){
-        
+    while(cur <= n){
+
         int last =cur;
-        while(cur<=d && (s[cur+1] - s[last])<=m){
+
+        while(cur<=n && (s[cur+1] - s[last])<=m){
             cur++;
         }
-        if(cur==last){
-            return -1;
+            if(cur==last){
+            min=-1;
             break;
-        }
-        if(cur<=d){
+            }   
+            if(cur<=n){
             min++;
         }
     }
-    return min;
+    printf("%d",min);
 }
 
