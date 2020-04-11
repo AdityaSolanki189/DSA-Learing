@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-int sort(int m[],int n){
+void sort(int m[],int n){
     for(int i=0;i<n;i++){
         for(int j=i+1;j<n;j++){
             if(m[i]<m[j]){
-                int temp = m[j];
-                m[j] = m[i];
-                m[i] = temp;
+                int temp = m[i];
+                m[i] = m[j];
+                m[j] = temp;
             }
         }
     }
@@ -23,9 +23,9 @@ int main(){
     }
     sort(a,n);
     sort(b,n);
-    int res=0;
+    long int res=0;
     for(int i=0;i<n;i++){
-        res = res + (a[i]*b[i]);
+        res += (long int)(a[i]*b[i]);
     }
     printf("%d",res);
     return 0;
