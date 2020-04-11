@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-void sort(int m[],int n){
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
+void sort(long int m[],long int n){
+    for(long int i=0;i<n;i++){
+        for(long int j=i+1;j<n;j++){
             if(m[i]<m[j]){
-                int temp = m[i];
+                long int temp = m[i];
                 m[i] = m[j];
                 m[j] = temp;
             }
@@ -13,21 +13,21 @@ void sort(int m[],int n){
 }
 
 int main(){
-    int n,a[1000],b[1000];
-    scanf("%d",&n);
-    for(int i=0;i<n;i++){
-        scanf("%d",&a[i]);
+    long int n,a[1000],b[1000];
+    scanf("%ld",&n);
+    for(long int i=0;i<n;i++){
+        scanf("%ld",&a[i]);
     }
-    for(int i=0;i<n;i++){
-        scanf("%d",&b[i]);
+    for(long int i=0;i<n;i++){
+        scanf("%ld",&b[i]);
     }
     sort(a,n);
     sort(b,n);
     long int res=0;
-    for(int i=0;i<n;i++){
-        res += (long int)(a[i]*b[i]);
+    for(long int i=0;i<n;i++){
+        res += (a[i]*b[i]);
     }
-    printf("%d",res);
+    printf("%ld",res);
     return 0;
 }
 
