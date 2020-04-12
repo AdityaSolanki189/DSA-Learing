@@ -16,7 +16,20 @@ void sort(long int s[],long int f[],int num){
     }
 }
 void min_interval(long int s[],long int f[],int num){
-    
+    int inter=0;
+    long int c=0,comm[100];
+    for(int i=0;i<num;i++){
+        if(f[i] >= s[i+1] && f[i] <= f[i+1]){
+            comm[c] = f[i];
+            c++;
+            inter ++;
+            i++;
+        }
+    }   
+    printf("%d\n",inter);
+    for(int i=0;i<c;i++){
+        printf("%d ",comm[i]);
+    }
 }
 int main(){
     int num,i,j;
@@ -26,6 +39,6 @@ int main(){
         scanf("%ld%ld",&s[i],&f[i]);
     }
     sort(s,f,num);
-    
+    min_interval(s,f,num);
     return 0;
 }
