@@ -1,19 +1,16 @@
 #include <stdio.h>
 
-long long int gcd(long int num1,long int num2){
-    long long int gcd=0;
-    for(long long int i = 1;i<=num1 && i<=num2;++i){
-        if(num1%i==0 && num2%i==0){
-            gcd=i;
-        }
-    }
-    return gcd;
-}
-
 int main(){
-    long long int num1,num2;
-    scanf("%lld%lld",&num1,&num2);
-
-    printf("%lld",gcd(num1,num2));
+    long long int a,b;
+    scanf("%lld%lld",&a,&b);
+    
+    int c = 1;
+    while (b != 0){
+        c = a % b;
+        a = b;
+        b = c;
+      }
+    
+    printf("%lld",a);
     return 0;
 }
