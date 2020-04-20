@@ -1,6 +1,6 @@
 ## MY DSA Practice Codes
 
-### WEEK WISE PROGRESS
+### *WEEK WISE PROGRESS*
 
 ### ~WEEK 1
 
