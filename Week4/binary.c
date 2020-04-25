@@ -1,28 +1,32 @@
 #include<stdio.h>
 
-int BinarySearch(int n_arr[],int k_arr[],int low,int high,int i){
+int BinarySearch(int num[],int low,int high,int key){
     if(high<low)
-        return low-1;
+        return -1;
     int mid = low + ((high-low)/2);
-    if(k_arr[i] == n_arr[mid])
+    if(key == num[mid])
         return mid;
-    if(k_arr[i]<n_arr[mid])
-        return BinarySearch(n_arr,k_arr,low,mid-1,i);
-    else
-        return BinarySearch(n_arr,k_arr,mid+1,high,i);        
+    else if(key < num[mid])
+        return BinarySearch(num,low,mid-1,key);
+    else 
+        return BinarySearch(num,mid+1,high,key);   
 }
 
 int main(){
-    int n,n_arr[30000],k,k_arr[100000],location;
+    int n,k,location,key;
     scanf("%d",&n);
-    for(int i=0;i<n;i++) scanf("%d",&n_arr);
+    int num[n];
+    for(int i=0;i<n;i++) 
+        scanf("%d",&num[i]);
     scanf("%d",&k);
-    for(int i=0;i<k;i++) scanf("%d",&k_arr);
-    int f_arr[100000]={0};
-    int low=0,high=n-1;
+    int k_arr[k];
+    for(int i=0;i<k;i++) 
+        scanf("%d",&k_arr[i]);
+    int low=0,high = n-1;
     for(int i=0;i<k;i++){
-        location = 0;
-        location = BinarySearch(n_arr,k_arr,low,high,i);
+        location=0,key=0;
+        key = k_arr[i];
+        location = BinarySearch(num,low,high,key);
         printf("%d ",location);
     }
     return 0;
