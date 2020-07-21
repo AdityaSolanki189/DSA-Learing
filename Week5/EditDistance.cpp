@@ -27,7 +27,7 @@ int EditDistDP(string str1,string str2,int n,int m){
 }
 
 int main(){
-    string str1,str2;
+    string str1="",str2="";
     cin>>str1>>str2;
     cout<<EditDistDP(str1,str2,str1.size(),str2.size())<<endl;
     return 0;
